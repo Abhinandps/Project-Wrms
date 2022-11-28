@@ -1,0 +1,38 @@
+
+
+
+.reminder{
+    /* background: pink; */
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.reminder p {
+    color: #555;
+}
+
+.work-report{
+    text-align: center;
+    /* background: red; */
+    padding: 5px 10px;
+    border-radius: 25px;
+    border:2px solid rgb(255, 202, 87);
+    color: rgb(255, 139, 86);
+    /* font-weight: bold; */
+    transition: 0.5s all;
+}
+
+@media screen and (max-width:700px) {
+    .reminder p {
+        display: none;
+    }
+}
+@media screen and (max-width:500px) {
+    .reminder p {
+        display: none;
+    }
+}

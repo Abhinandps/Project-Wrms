@@ -1,0 +1,50 @@
+
+
+
+
+.notfound{
+    /* background: red; */
+    width: 100%;
+    height: calc(100vh - 10vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notfound h1{
+    font-size: 4em;
+    color: rgb(105, 105, 105);
+    animation: glitch 5s linear infinite;
+}
+
+
+@keyframes glitch{
+    2%,64%{
+      transform: translate(2px,0) skew(0deg);
+    }
+    4%,60%{
+      transform: translate(-2px,0) skew(0deg);
+    }
+    62%{
+      transform: translate(0,0) skew(5deg); 
+    }
+  }
+
+
+  .notfound h2{
+    color: rgb(87, 87, 87);
+    font-size: 1.5em;
+    font-weight: normal;
+
+  }
+
+  .notfound .button{
+    background: rgb(88, 88, 88);
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8em;
+  }

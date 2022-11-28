@@ -1,0 +1,171 @@
+
+*{
+    text-decoration: none;
+}
+
+.nav_menu{
+   width: 100%;
+    height: 100vh;
+    transition: all 0.3s;
+
+    background: linear-gradient(#273848,#33475B);
+
+}
+.header{
+    width: 100%;
+    background: linear-gradient(#3498Db,#2d6083);
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header h2:nth-child(1){
+    display:none;
+}
+
+.header a{
+    width: 35%;
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
+.header i{
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.section{
+    width: 100%;
+    min-height: calc(80vh - 10vh);
+    position: relative;
+}
+
+
+ul{
+    padding-top: 2em;
+}
+ul li{
+    /* background: red; */
+    padding: 10px 0;
+    /* transition: all 0.5s; */
+}
+
+
+.link{
+    /* background: red; */
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    color: #dbdbdb;
+    padding: 10px 0;
+    gap: 15px;
+    /* transition:all 0.5s; */
+}
+
+
+.link i{
+    margin: 0 0 0 20px;
+    width:calc(100% - 90%);
+    /* background: blue; */
+}
+
+.link span{
+    width: 100%;
+    /* background: rgb(0, 255, 55); */
+}
+
+
+
+
+.footer{
+    /* background: red; */
+    height: calc(100vh - 80vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .social_media{
+    /* background: pink; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.social_media a{
+
+    font-size: 1.5em;
+    margin: 0 10px;
+    color: rgb(189, 189, 189);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.content strong{
+    font-size: 0.6em;
+    color: rgb(189, 189, 189);
+}
+.content p{
+    font-size: 0.5em;
+    color: rgb(189, 189, 189);
+    letter-spacing: 0.5px;
+}
+
+
+
+
+@keyframes  fade-in {
+    from{
+        opacity: 0;
+        transform: translateY(0%);
+    }
+    to{
+        opacity: 1;
+      
+    }
+    
+}
+
+
+
+
+@media screen and (max-width:500px) {
+
+    
+
+    .header{
+        width: 100%;
+        background: linear-gradient(#3498Db,#2d6083);
+        height: 10vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+    }
+    .header i{
+        display: none;
+    }
+    .header h2:nth-child(1){
+        display:block;
+    }
+}

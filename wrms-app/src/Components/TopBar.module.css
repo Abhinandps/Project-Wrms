@@ -1,0 +1,99 @@
+
+
+
+.topbar{
+    background: #fff;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 0 25px;
+    position: relative;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.navigate{
+    font-size: 1.3em;
+}
+
+.right{
+    width: 150px;
+    /* background: red; */
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.notification{
+    position: relative;
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.notification i{
+    font-size: 1.2em;
+    color: grey;
+}
+ .notification span{
+    width: 15px;
+    height: 15px;
+    position:absolute;
+    top: 0;
+    right: -5px;
+    background: red;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+
+.profile img{
+    border-radius: 50%;
+}
+
+.logout i{
+    font-size: 1.3em;
+    color: grey;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width:500px){
+    .topbar{
+        position:sticky;
+        z-index: 777;
+        padding: 0 15px;
+    }
+
+    .navigate{
+        font-size: 1.2em;
+        /* padding: 0 0 0 50px; */
+    }
+
+    .notification{
+       display: none;
+    }
+        
+    
+
+    .right{
+        width: 40px;
+        /* background: red; */
+        display: flex;
+        justify-content:flex-end;
+        align-items: center;
+    }
+}
+

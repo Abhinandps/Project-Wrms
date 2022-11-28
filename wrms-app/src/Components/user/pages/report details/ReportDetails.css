@@ -1,0 +1,214 @@
+.details-head {
+  width: 100%;
+  min-height: calc(100vh - 10vh);
+  /* background: pink; */
+  padding: 10px 25px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+
+/* .details-head::-webkit-scrollbar {
+    display: none;
+  } */
+
+.details-head::-webkit-scrollbar {
+  display: none;
+}
+
+.details-head .header {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 1.5em;
+  font-weight: normal;
+  color: grey;
+}
+
+.left {
+  /* background: red; */
+  width: 500px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.left p {
+  color: grey;
+  font-size: 1em;
+}
+
+.left input,
+select {
+  font-size: 0.9em;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: transparent;
+  border: 2px solid rgb(35, 155, 224);
+}
+
+.right {
+  /* background: red; */
+  /* height: 100%; */
+  display: flex;
+  justify-content: flex-end;
+}
+.right .searchbox {
+  background: linear-gradient(#3498db, #2d6083);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  border-radius: 25px;
+}
+.right i {
+  color: #fff;
+}
+
+.searchbox input::placeholder {
+  color: #fff;
+}
+
+.searchbox input {
+  color: #fff;
+  font-size: 0.9em;
+  background: transparent;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+}
+
+.details-heading {
+  /* background: red; */
+  padding: 10px 0;
+  color: #555;
+}
+
+.all-reports {
+  /* background: pink; */
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.all-reports .report-data {
+  background: #fff;
+  width: 45%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  align-items: center;
+  margin: 10px 10px;
+  cursor: pointer;
+  background: linear-gradient(#3498db, #2d6083);
+  color: #fff;
+  transition: 0.5s;
+}
+
+.all-reports .report-data .data{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.report-data:hover {
+    transform: scale(1.0125);
+    box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+  }
+
+.all-reports .report-data .status {
+    text-align: center;
+    width: 300px;
+    padding: 5px 15px;
+  background: rgba(248, 248, 248, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media screen and (max-width: 890px) {
+  .details-head .left {
+    width: 100%;
+    /* background: blue; */
+  }
+
+  .details-head .right {
+    width: 100%;
+    /* background: #000; */
+    justify-content: center;
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .details-head .left {
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* background: blue; */
+  }
+
+  .details-head .left input {
+    margin: 0;
+  }
+
+  .details-head .left input,
+  select {
+    color: #555;
+    padding: 5px 10px;
+    text-align: center;
+    width: 200px;
+    height: 35px;
+  }
+
+  .details-head .right {
+    width: 100%;
+    /* background: #000; */
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .details-head .right .searchbox {
+    width: 200px;
+    padding: 5px 0 5px 60px;
+  }
+
+
+  
+.all-reports {
+    font-size: 0.9em;
+   display: flex;
+   flex-direction: column;
+  }
+  
+  .all-reports .report-data {
+    font-size: 0.9em;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0 10px;
+   flex-direction: column;
+    height: 100px;
+    gap: 10px;
+    justify-content: center;
+    /* background: red; */
+  }
+  .all-reports .report-data .status{
+    text-align: center;
+    width: 200px;
+  }
+  
+}
