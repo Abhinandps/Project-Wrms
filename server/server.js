@@ -16,7 +16,7 @@ var urlencodedparser = bodyparser.urlencoded({extended:true})
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root123",
     database: "db3"
 })
 con.connect((err) => {
@@ -118,7 +118,6 @@ app.post("/api/insert/selist",urlencodedparser,jsonparser,(req,res)=>{
        })
     
 })
-//dffggfjhj
 // lsit the reporting person
 
 app.get("/api/list/report",(req,res)=>{
