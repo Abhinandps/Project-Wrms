@@ -5,7 +5,7 @@ import Time from "../dashboard/components/Time";
 import ComponentOne from "../dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../dashboard/components/UI/ComponentTwo";
 import "./ReportDetails.css";
-import Popup from "../dashboard/components/Popup";
+
 
 
 const ReportDetails = () => {

@@ -16,7 +16,7 @@ var urlencodedparser = bodyparser.urlencoded({extended:true})
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root123",
     database: "db3"
 })
 con.connect((err) => {
