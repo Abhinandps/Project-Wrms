@@ -32,9 +32,10 @@
 
 .left {
   /* background: red; */
-  width: 500px;
+  width: 100%;
   height: 100%;
   display: flex;
+  gap: 20px;
   justify-content: space-between;
 }
 .left p {
@@ -42,8 +43,7 @@
   font-size: 1em;
 }
 
-.left input,
-select {
+.left>input{
   font-size: 0.9em;
   outline: none;
   padding: 10px 20px;
@@ -52,23 +52,28 @@ select {
   border: 2px solid rgb(35, 155, 224);
 }
 
+
 .right {
-  /* background: red; */
+
+  width: 100%;
   /* height: 100%; */
   display: flex;
   justify-content: flex-end;
 }
+
+
 .right .searchbox {
   background: linear-gradient(#3498db, #2d6083);
-  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 5px 20px;
   border-radius: 25px;
+  padding-left: 30px;
 }
 .right i {
   color: #fff;
+}
+.right .searchbox input{
+  border: none;
 }
 
 .searchbox input::placeholder {

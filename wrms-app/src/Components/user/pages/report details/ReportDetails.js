@@ -4,12 +4,18 @@ import Time from "../dashboard/components/Time";
 import ComponentOne from "../dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../dashboard/components/UI/ComponentTwo";
 import "./ReportDetails.css";
+import Popup from "../dashboard/components/Popup";
 
 const ReportDetails = () => {
 
   const [details,setDetails] = useState([]);
 
-  const [pop,setPop]=useState(false);
+  const [show,setShow] = useState(false);
+  const [date,setDate] = useState([]);
+  const [type,setType] = useState([]);
+  const [title,setTitle] = useState([]);
+  const [disc,setDisc] = useState([]);
+
   const[query,setQuery]=useState("")
 
   // store report datas in local storage named as `report`
@@ -65,6 +71,7 @@ const ReportDetails = () => {
       </ComponentOne>
 
       <ComponentTwo>
+      <Popup  date={date} type={type} title={title} disc = {disc} show={show} onClose={() => setShow(false)} />
         <div className="details-heading">
           <p>All Reports</p>
         </div>
@@ -74,7 +81,15 @@ const ReportDetails = () => {
           {
             details.filter((obj)=>obj.title.toLowerCase().includes(query)).map((obj)=>{
               return(
-                <div onClick={()=>console.log("Clicked")} className="report-data">
+                <div onClick={
+                  () => {
+                    setShow(true);
+                    setDate(obj.find.split("T18:30:00.000Z"))
+                    setType(obj.Type)
+                    setTitle(obj.title)
+                    setDisc(obj.Description)
+                    
+                     }} className="report-data">
                 <div className="data">
                 <p>{obj.title}</p>
                  <p>{obj.find.split("T18:30:00.000Z")}</p>
