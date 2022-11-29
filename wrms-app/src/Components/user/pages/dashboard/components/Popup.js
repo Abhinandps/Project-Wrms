@@ -2,7 +2,7 @@ import React from "react";
 import "./Popup.css";
 import { Official,Others } from "./ReportsData";
 
-const Popup = ({ show, onClose,date,title,disc,type}) => {
+const Popup = ({ show, onClose,date,title,disc,type,status}) => {
 
   if (!show) {
     return null;
@@ -25,7 +25,7 @@ const Popup = ({ show, onClose,date,title,disc,type}) => {
         </div>
 
         <div className="footer">
-        <button> Aproved</button> 
+        <button>{status}</button> 
         </div>
       </div>
     </div>
@@ -66,6 +66,9 @@ const Cards = (props) => {
               <div className="contents">{props.disc}</div>
             </div>
 
+      </div>
+      <div className="approve">
+        {props.status}
       </div>
 
       {/* Others Data Displaying  */}

@@ -22,6 +22,7 @@ import AdminLogin from "./Components/admin/AdminLogin";
 import TeamMembers from "./Components/admin/team members/TeamMembers";
 import AdReportDetails from "./Components/admin/ReportDetails.js/AdReportDetails";
 import TaskDetails from "./Components/admin/ReportDetails.js/TaskDetails";
+import Reptperson from "./Components/admin/Reportingperson/Reptperson";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
            <Route index path="report-details" element={<ReportDetails/>}/>
            <Route path="*" element={<NotFound/>}/>
         <Route path="my-task" element={<Task/>}/>
+      
         
         </Route>
 
@@ -46,6 +48,7 @@ function App() {
            <Route index path="members"  element={<TeamMembers/>}/>
            <Route index path="report-details" element={<AdReportDetails/>}/>
            <Route index path="task-details" element={<TaskDetails/>}/>
+           <Route index path="Report-person" element={<Reptperson/>}/>
           
         </Route>
         

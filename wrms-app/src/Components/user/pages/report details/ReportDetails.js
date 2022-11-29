@@ -1,9 +1,11 @@
 import Axios from "axios";
 import React, { useState,useEffect } from "react";
+import Popup from "../dashboard/components/Popup";
 import Time from "../dashboard/components/Time";
 import ComponentOne from "../dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../dashboard/components/UI/ComponentTwo";
 import "./ReportDetails.css";
+
 
 const ReportDetails = () => {
 
@@ -84,7 +86,7 @@ const ReportDetails = () => {
                  </div>
                 </div>
                  <div className="status">
-                 <p>Pening HOD Aproval</p>
+                 <p></p>
                  </div>
                </div>
               )
