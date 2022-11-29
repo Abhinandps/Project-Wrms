@@ -1,4 +1,3 @@
-import React from 'react'
 
 import Section from './components/Section'
 import Time from './components/Time'
@@ -6,7 +5,11 @@ import "./Dashboard.css"
 
 
 
+
 const Dashboard = (props) => {
+
+ 
+
   return (
     <div className="dashboard"> 
       <div className="header">

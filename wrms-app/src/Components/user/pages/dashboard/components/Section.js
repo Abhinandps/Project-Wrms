@@ -1,13 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import "./Section.css";
 
 import ComponentOne from "./UI/ComponentOne";
 import ComponentTwo from "./UI/ComponentTwo";
 
-
-
+import Axios from 'axios'
 
 
 import { review } from './Reviewdata'
@@ -18,6 +17,35 @@ import Popup from './Popup'
 
 const Section = () => {
   const [show,setShow] = useState(false);
+  const [details,setDetails] = useState([]);
+
+  const [date,setDate] = useState([]);
+  const [type,setType] = useState([]);
+  const [title,setTitle] = useState([]);
+  const [disc,setDisc] = useState([]);
+
+  const [report,setReport] = useState([]);
+
+  console.log(`Report ${report}`);
+
+
+  
+  const [others,setOthers] = useState([]);
+
+  // const [date,setDate] = useState([]);
+
+
+
+
+  useEffect(()=>{
+    Axios.get('http://localhost:7000/api/get').then((response)=>{
+      // console.log(response.data);
+      setDetails(response.data)
+  
+    })
+    // setTimeout(() => 
+    //   setDis(),500);
+  },[])
 
   return (
     <>
@@ -44,7 +72,7 @@ const Section = () => {
       </ComponentOne>
 
       <ComponentTwo>
-        <Popup show={show} onClose={() => setShow(false)} />
+        <Popup  date={date} type={type} title={title} disc = {disc} show={show} onClose={() => setShow(false)} />
 
         <p className="heading">Recent Review</p>
         <table>
@@ -54,18 +82,27 @@ const Section = () => {
             <th>Comments</th>
           </tr>
 
-          {review.map((item) => {
+          {details.map((item) => {
             return (
               <tr>
                 <td>
-                  <Link onClick={() => setShow(true)} index>
-                    {item.date}
+                  <Link key={item.title}  onClick={
+                    () => {
+                      setShow(true);
+                      setDate(item.find.split("T18:30:00.000Z"))
+                      setType(item.Type)
+                      setTitle(item.title)
+                      setDisc(item.Description)
+                      
+                       }} index>
+                    {item.find.split("T18:30:00.000Z")}
                   </Link>
                 </td>
                 <td>
-                  <i className={item.icon}></i>
+                  <i className={item.icon}>3 Star</i>
                 </td>
-                <td>{item.comments}</td>
+                {/* <td>{item.comments}</td> */}
+                <td>todo</td>
               </tr>
             );
           })}
