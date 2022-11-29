@@ -23,10 +23,12 @@ const Section = () => {
   const [type,setType] = useState([]);
   const [title,setTitle] = useState([]);
   const [disc,setDisc] = useState([]);
+  const [status,setStatus] = useState("");
 
-  const [report,setReport] = useState([]);
+console.log(status);
 
-  console.log(`Report ${report}`);
+
+  // console.log(`Report ${report}`);
 
 
   
@@ -39,7 +41,7 @@ const Section = () => {
 
   useEffect(()=>{
     Axios.get('http://localhost:7000/api/get').then((response)=>{
-      // console.log(response.data);
+      // response.send(data)
       setDetails(response.data)
   
     })
@@ -72,7 +74,7 @@ const Section = () => {
       </ComponentOne>
 
       <ComponentTwo>
-        <Popup  date={date} type={type} title={title} disc = {disc} show={show} onClose={() => setShow(false)} />
+        <Popup  date={date} type={type} title={title} disc = {disc} show={show} status={status} onClose={() => setShow(false)} />
 
         <p className="heading">Recent Review</p>
         <table>
@@ -93,7 +95,8 @@ const Section = () => {
                       setType(item.Type)
                       setTitle(item.title)
                       setDisc(item.Description)
-                      
+                      setStatus(item.status)
+                 
                        }} index>
                     {item.find.split("T18:30:00.000Z")}
                   </Link>

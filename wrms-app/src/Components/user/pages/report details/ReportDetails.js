@@ -1,9 +1,11 @@
 import Axios from "axios";
 import React, { useState,useEffect } from "react";
+import Popup from "../dashboard/components/Popup";
 import Time from "../dashboard/components/Time";
 import ComponentOne from "../dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../dashboard/components/UI/ComponentTwo";
 import "./ReportDetails.css";
+
 
 const ReportDetails = () => {
 
@@ -84,31 +86,13 @@ const ReportDetails = () => {
                  </div>
                 </div>
                  <div className="status">
-                 <p>Pening HOD Aproval</p>
+                 <p></p>
                  </div>
                </div>
               )
             })
           }
 
-          {/* <div onClick={()=>console.log("Clicked")} className="report-data">
-           <div className="data">
-           <p>1096</p>
-            <p>21-06-2022</p>
-            <p>04:52:27pm</p>
-           </div>
-            <div className="status">
-            <p>Pening HOD Aproval</p>
-            </div>
-          </div> */}
-          
-
-          {/* <div className="report-data">
-            <p>1096</p>
-            <p>21-06-2022</p>
-            <p>04:52:27pm</p>
-            <p className="status">Aproved</p>
-          </div> */}
 
         </div>
       </ComponentTwo>

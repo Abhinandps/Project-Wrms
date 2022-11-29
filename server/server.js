@@ -16,7 +16,7 @@ var urlencodedparser = bodyparser.urlencoded({extended:true})
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root123",
     database: "db3"
 })
 con.connect((err) => {
@@ -60,10 +60,10 @@ app.post("/api/insert",urlencodedparser,jsonparser,(req,res)=>{
     let Fromtime=req.body.Fromtime;
     let Type=req.body.Type;
     let Description=req.body.Description;
-    // let status=re.body.status;
+    let up=req.body.up;
 
-    let qr="insert into person values(?,?,?,?,?,?)";
-    con.query(qr,[title,find,Totime,Fromtime,Type,Description],(err,data)=>{
+    let qr="insert into person values(?,?,?,?,?,?,?)";
+    con.query(qr,[title,find,Totime,Fromtime,Type,Description,up],(err,data)=>{
         if(err){
             res.send({error:"fail"})
         }
@@ -118,7 +118,7 @@ app.post("/api/insert/selist",urlencodedparser,jsonparser,(req,res)=>{
        })
     
 })
-
+//dffggfjhj
 // lsit the reporting person
 
 app.get("/api/list/report",(req,res)=>{
@@ -245,6 +245,35 @@ app.delete('/api/deletelist/:Taskname',(req,res)=>{
        })
 })
 
+app.patch("/api/stateupdate",urlencodedparser,jsonparser,(req,res)=>{
+    // const Stats=req.body.status;
+  const title=req.body.title;
+   
+    const qr="update person set status='APPROVED' where title=?";
+    con.query(qr,[title],(err,result)=>{
+    if(err){
+     console.log(err);
+    }
+    else{
+        res.send(result)
+    }
+       })
+})
+
+app.patch("/api/statereject",urlencodedparser,jsonparser,(req,res)=>{
+    // const Stats=req.body.status;
+  const title=req.body.title;
+   
+    const qr="update person set status='REJECTED' where title=?";
+    con.query(qr,[title],(err,result)=>{
+    if(err){
+     console.log(err);
+    }
+    else{
+        res.send(result)
+    }
+       })
+})
 
 
 app.listen(7000, function () {

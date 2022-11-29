@@ -30,6 +30,5 @@ export const NavData = [
         title:'My Task',
     },
 
-
     
 ];

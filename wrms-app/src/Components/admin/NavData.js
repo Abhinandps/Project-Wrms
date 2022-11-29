@@ -19,7 +19,16 @@ export const NavData = [
         path:'report-details',
         title:'Report Details',
     },
-
+    {
+        icon:'fa-solid fa-circle-exclamation',
+        path:'task-details',
+        title:'Task Details',
+    },
+    {
+        icon:'fa-solid fa-circle-exclamation',
+        path:'Report-person',
+        title:'Reporting person',
+    },
 
     
 ];

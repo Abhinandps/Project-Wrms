@@ -11,6 +11,7 @@ import Dashboard from "./Components/user/pages/dashboard/Dashboard";
 import NotFound from "./Components/user/pages/NotFound";
 import NavigationMenu from "./Components/NavigationMenu";
 import ReportDetails from "./Components/user/pages/report details/ReportDetails";
+import Task from "./Components/user/pages/Task/Task";
 
 import { NavData } from "./Components/NavData";
 
@@ -19,6 +20,9 @@ import AdminMainComponent from "./Components/admin/AdminMainComponent";
 import AdminDashboard from "./Components/admin/dashboard/AdminDashboard";
 import AdminLogin from "./Components/admin/AdminLogin";
 import TeamMembers from "./Components/admin/team members/TeamMembers";
+import AdReportDetails from "./Components/admin/ReportDetails.js/AdReportDetails";
+import TaskDetails from "./Components/admin/ReportDetails.js/TaskDetails";
+import Reptperson from "./Components/admin/Reportingperson/Reptperson";
 
 
 function App() {
@@ -34,12 +38,18 @@ function App() {
            <Route index path="work-report" element={<WorkReport/>}/>
            <Route index path="report-details" element={<ReportDetails/>}/>
            <Route path="*" element={<NotFound/>}/>
+        <Route path="my-task" element={<Task/>}/>
+      
+        
         </Route>
 
         <Route path="/admin" element={<AdminMainComponent/>}>
            <Route index path="dashboard"  element={<AdminDashboard/>}/>
            <Route index path="members"  element={<TeamMembers/>}/>
-           <Route path="*" element={<NotFound/>}/>
+           <Route index path="report-details" element={<AdReportDetails/>}/>
+           <Route index path="task-details" element={<TaskDetails/>}/>
+           <Route index path="Report-person" element={<Reptperson/>}/>
+          
         </Route>
         
       </Routes>
