@@ -1,6 +1,6 @@
 
 import React from 'react'
-
+import './Adpop.css'
 const Adpop1 = (props) => {
     return (props.trigger)?(
     <div className="popup1">
