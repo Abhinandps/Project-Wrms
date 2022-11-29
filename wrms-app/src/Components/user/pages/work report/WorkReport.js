@@ -8,6 +8,7 @@ import ComponentOne from "../dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../dashboard/components/UI/ComponentTwo";
 
 import Axios from "axios";
+import { data } from "../../../admin/dashboard/reportData";
 
 
 const WorkReport = () => {
@@ -36,17 +37,14 @@ const WorkReport = () => {
   const [type, setType] = useState(true);
   const [disc, setDisc] = useState();
   const [disstate, setState] = useState([]);
-
-  // const index = details.findIndex((obj) => obj.statusDrop === true);
-
-  // if (index > -1) details.splice(index, 1);
-
-  // console.log(index);
+  const [up, setUp] = useState("");
+  // console.log(up);
 
   const handleInputSubmit = (e) => {
     e.preventDefault();
-    Axios.post('http://localhost:7000/api/insert',{title:title,find:date,Totime:to,Fromtime:from,Type:type,Description:disc})
+    Axios.post('http://localhost:7000/api/insert',{title:title,find:date,Totime:to,Fromtime:from,Type:type,Description:disc,up:up})
     .then(()=>{
+      
       swal({
         title: "DATA ADDED SUCCESSFULLY",
         icon: "success",
@@ -56,11 +54,7 @@ const WorkReport = () => {
 
     setState([...disstate,{title:title,find:date,Totime:to,Fromtime:from,Type:type,Description:disc},
     ])
-    // swal({
-    //   title: "DATA ADDED SUCCESSFULLY",
-    //   icon: "success",
-    //   button: "OK!",
-    // });
+   
 
      
     }
@@ -80,31 +74,7 @@ const WorkReport = () => {
 
     }
 
-    // if (date && from && to && title && type && disc) {
-    //   setDetails([
-    //     ...details,
-    //     {
-    //       id: Date.now(),
-    //       date: date,
-    //       from: from,
-    //       to: to,
-    //       title: title,
-    //       type: type,
-    //       disc: disc,
-    //       statusDrop: false,
-    //       statusErase: false,
-    //       statusUpdate: false,
-    //     },
-    //   ]);
-    //   setDate("");
-    //   setFrom("");
-    //   setTo("");
-    //   setTitle("");
-    //   setType("");
-    //   setDisc("");
-    // } else {
-    //   alert("Please insert the required field");
-    // }
+
 
     
 useEffect(()=>{
@@ -114,8 +84,7 @@ useEffect(()=>{
 
   })
   
-  // setTimeout(() => 
-  //   setDis(),500);
+
 },[])
   
 
@@ -244,7 +213,9 @@ useEffect(()=>{
           </div>
 
           <div className="buttons">
-            <button type="submit">Save</button>
+            <button type="submit" value="pending" onClick={(e) => {
+                  setUp(e.target.value);
+                }}>Save</button>
             <button onClick={resetInputfield} type="reset">
               Cancel
             </button>
@@ -346,10 +317,10 @@ useEffect(()=>{
             })}
             {/* </table> */}
             
-
+{/* 
             <div className="sent">
               <button type="submit">Sent</button>
-            </div>
+            </div> */}
           </div>
         </ComponentTwo>
       </form>
