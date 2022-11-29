@@ -1,6 +1,5 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-
+import Axios from "axios";
+import React, { useState,useEffect } from "react";
 import Time from "../dashboard/components/Time";
 import ComponentOne from "../dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../dashboard/components/UI/ComponentTwo";
@@ -8,12 +7,26 @@ import "./ReportDetails.css";
 
 const ReportDetails = () => {
 
+  const [details,setDetails] = useState([]);
+
+  const [pop,setPop]=useState(false);
+  const[query,setQuery]=useState("")
+
   // store report datas in local storage named as `report`
   // localy fetch the datainto reportObj variable
     // const saved = localStorage.getItem("Report");
     // const reportObj = JSON.parse(saved);
     // console.log(reportObj);
 
+    useEffect(()=>{
+      Axios.get('http://localhost:7000/api/get').then((response)=>{
+        // console.log(response.data);
+        setDetails(response.data)
+    
+      })
+      // setTimeout(() => 
+      //   setDis(),500);
+    },[])
 
 
     
@@ -46,7 +59,7 @@ const ReportDetails = () => {
         <div className="right">
           <div className="searchbox">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="search" />
+            <input type="text" placeholder="search" onChange={e=>setQuery(e.target.value)} />
           </div>
         </div>
       </ComponentOne>
@@ -59,10 +72,26 @@ const ReportDetails = () => {
         <div className="all-reports">
 
           {
-
+            details.filter((obj)=>obj.title.toLowerCase().includes(query)).map((obj)=>{
+              return(
+                <div onClick={()=>console.log("Clicked")} className="report-data">
+                <div className="data">
+                <p>{obj.title}</p>
+                 <p>{obj.find.split("T18:30:00.000Z")}</p>
+                 <div className="time">
+                 <p>{obj.Totime.split(":00")}</p> -
+                 <p>{obj.Fromtime.split(":00")}</p> 
+                 </div>
+                </div>
+                 <div className="status">
+                 <p>Pening HOD Aproval</p>
+                 </div>
+               </div>
+              )
+            })
           }
 
-          <div onClick={()=>console.log("Clicked")} className="report-data">
+          {/* <div onClick={()=>console.log("Clicked")} className="report-data">
            <div className="data">
            <p>1096</p>
             <p>21-06-2022</p>
@@ -71,7 +100,7 @@ const ReportDetails = () => {
             <div className="status">
             <p>Pening HOD Aproval</p>
             </div>
-          </div>
+          </div> */}
           
 
           {/* <div className="report-data">

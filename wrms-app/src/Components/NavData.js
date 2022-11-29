@@ -24,6 +24,11 @@ export const NavData = [
         path:'report-details',
         title:'Report Details',
     },
+    {
+        icon:'fa-solid fa-square-check',
+        path:'my-task',
+        title:'My Task',
+    },
 
 
     

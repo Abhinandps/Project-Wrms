@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./WorkReport.css";
 import Time from "../dashboard/components/Time";
+import swal from 'sweetalert'
 
 import axios from 'axios';
 import ComponentOne from "../dashboard/components/UI/ComponentOne";
@@ -10,6 +11,7 @@ import Axios from "axios";
 
 
 const WorkReport = () => {
+  
   // const [details, setDetails] = useState(() => {
   //   const saved = localStorage.getItem("Storage");
   //   const initialValue = JSON.parse(saved);
@@ -33,7 +35,7 @@ const WorkReport = () => {
   const [title, setTitle] = useState();
   const [type, setType] = useState(true);
   const [disc, setDisc] = useState();
-  const [disstate, setState] = useState();
+  const [disstate, setState] = useState([]);
 
   // const index = details.findIndex((obj) => obj.statusDrop === true);
 
@@ -44,11 +46,15 @@ const WorkReport = () => {
   const handleInputSubmit = (e) => {
     e.preventDefault();
     Axios.post('http://localhost:7000/api/insert',{title:title,find:date,Totime:to,Fromtime:from,Type:type,Description:disc})
-    // .then(()=>{
-    //   alert("sucess")
-    // })
+    .then(()=>{
+      swal({
+        title: "DATA ADDED SUCCESSFULLY",
+        icon: "success",
+        button: "OK!",
+      });
+    })
 
-    disstate([...setState,{title:title,find:date,Totime:to,Fromtime:from,Type:type,Description:disc},
+    setState([...disstate,{title:title,find:date,Totime:to,Fromtime:from,Type:type,Description:disc},
     ])
     // swal({
     //   title: "DATA ADDED SUCCESSFULLY",
@@ -59,20 +65,20 @@ const WorkReport = () => {
      
     }
     
-    // const deleteitem=(title)=>{
-    //   Axios.delete(`http://localhost:7000/api/delete/${title}`)
+    const deleteitem=(title)=>{
+      Axios.delete(`http://localhost:7000/api/delete/${title}`)
 
-    //   // swal({
-    //   //   title: "DELETED SUCCESSFULLY",
-    //   //   text: "PLEASE REFRESH THE PAGE!",
-    //   //   icon: "warning",
-    //   //   buttons: true,
-    //   //   dangerMode: true,
-    //   // })
+      swal({
+        title: "DELETED SUCCESSFULLY",
+        text: "PLEASE REFRESH THE PAGE!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
 
  
 
-    // }
+    }
 
     // if (date && from && to && title && type && disc) {
     //   setDetails([
@@ -122,51 +128,9 @@ useEffect(()=>{
     setDisc("");
   };
 
-  // useEffect(() => {
-  //   // storing  data to localStorage of browser
-  //    localStorage.setItem("Storage", JSON.stringify(details)) ;
-  // }, [details]);
-
-  let completeReport;
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (localStorage.getItem("Storage")) {
-      alert("incoming data");
-      completeReport = localStorage.getItem("Storage");
-      console.log(completeReport);
-      localStorage.setItem("Report", JSON.stringify(completeReport)) ;
-
-
-      //firabse data storing  using API POST Request\
-      // method 1
-          // fetch("https://api-project-aaabd-default-rtdb.firebaseio.com/.json",{
-          //   method:"POST",
-          //   body: JSON.stringify(completeReport),
-          //   headers : {
-          //     'Content-Type' : 'application/json'
-          //   }
-          // });
-
-
-      //firabse data storing  using API POST Request\
-      // method 2
-      axios.post("https://api-project-aaabd-default-rtdb.firebaseio.com/.json",{
-        body : JSON.stringify(completeReport),
-        headers : {
-          'Content-Type' :'application/json'
-        }
-      })
-
-    
-      
-
-      
-
-    } else {
-      alert("no data");
-    }
+    alert("incoming data")
   };
 
 
@@ -318,8 +282,8 @@ useEffect(()=>{
                       <div className="contents">
                       <div className="details">
                       <p>{obj.Type}</p>
-                      <p>{obj.find}</p>
-                        <p>{obj.Fromtime} - {obj.Totime}</p>
+                      <p>{obj.find.split("T18:30:00.000Z")}</p>
+                        <p>{obj.Fromtime.split(":00")} - {obj.Totime.split(":00")}</p>
                         {/* <p>{obj.data}</p> */}
                       </div>
                         <div className="status">
@@ -339,7 +303,7 @@ useEffect(()=>{
                     //     return obj2;
                     //   }))
                     // }}
-                    // onClick={()=>{deleteitem(obj.title)}}
+                    onClick={()=>{deleteitem(obj.title)}}
                      class="fa-solid fa-trash"></i>
                      </div>
                          </div>
