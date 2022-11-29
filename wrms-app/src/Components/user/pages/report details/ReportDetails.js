@@ -91,24 +91,6 @@ const ReportDetails = () => {
             })
           }
 
-          {/* <div onClick={()=>console.log("Clicked")} className="report-data">
-           <div className="data">
-           <p>1096</p>
-            <p>21-06-2022</p>
-            <p>04:52:27pm</p>
-           </div>
-            <div className="status">
-            <p>Pening HOD Aproval</p>
-            </div>
-          </div> */}
-          
-
-          {/* <div className="report-data">
-            <p>1096</p>
-            <p>21-06-2022</p>
-            <p>04:52:27pm</p>
-            <p className="status">Aproved</p>
-          </div> */}
 
         </div>
       </ComponentTwo>
