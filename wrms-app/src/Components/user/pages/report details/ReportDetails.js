@@ -18,6 +18,8 @@ const ReportDetails = () => {
   const [title,setTitle] = useState([]);
   const [disc,setDisc] = useState([]);
 
+  const [status,setStatus] = useState("");
+
   const[query,setQuery]=useState("")
 
   // store report datas in local storage named as `report`
@@ -73,7 +75,7 @@ const ReportDetails = () => {
       </ComponentOne>
 
       <ComponentTwo>
-      <Popup  date={date} type={type} title={title} disc = {disc} show={show} onClose={() => setShow(false)} />
+      <Popup  date={date} type={type} title={title} disc = {disc} show={show} status={status} onClose={() => setShow(false)} />
         <div className="details-heading">
           <p>All Reports</p>
         </div>
@@ -90,6 +92,7 @@ const ReportDetails = () => {
                     setType(obj.Type)
                     setTitle(obj.title)
                     setDisc(obj.Description)
+                    setStatus(obj.status)
                     
                      }} className="report-data">
                 <div className="data">
@@ -101,7 +104,7 @@ const ReportDetails = () => {
                  </div>
                 </div>
                  <div className="status">
-                 <p></p>
+                 <p>{obj.status}</p>
                  </div>
                </div>
               )
