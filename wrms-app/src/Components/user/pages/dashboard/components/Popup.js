@@ -2,23 +2,26 @@ import React from "react";
 import "./Popup.css";
 import { Official,Others } from "./ReportsData";
 
-const Popup = ({ show, onClose }) => {
+const Popup = ({ show, onClose,date,title,disc,type}) => {
+
   if (!show) {
     return null;
   }
-
+  
   return (
     <div className="modalWrapper">
       <div className="modal">
         <i onClick={onClose} class="fa-solid fa-xmark"></i>
 
         <div className="section">
-          <Cards
-            date={"21-06-2022"}
-            comments={"Excelent"}
-            time={"04:45:21 PM"}
-            Official={Official} Others = {Others}
-          />
+        <Cards
+              date={date}
+              comments={"Excelent"}
+              time={"04:45:21 PM"}
+              title={title}
+              disc={disc}
+              type={type}
+            />
         </div>
 
         <div className="footer">
@@ -52,26 +55,25 @@ const Cards = (props) => {
       {/* Official Data Displaying  */}
       <div className="card">
        <div className="tagname">
-       <h2>Official</h2>
+       <h2>{props.type.toUpperCase()}</h2>
        </div>
-        {props.Official.map((item, index) => {
-          return (
-            <div className="wrapper" key={index}>
+  
+            <div className="wrapper">
               <div className="card-header">
-                <p>{item.title}</p>
-                <p>{item.hour}</p>
+                <p>{props.title}</p>
+                <p>2hr</p>
               </div>
-              <div className="contents">{item.contents}</div>
+              <div className="contents">{props.disc}</div>
             </div>
-          );
-        })}
+
       </div>
 
       {/* Others Data Displaying  */}
-      <div className="card">
+      {/* <div className="card">
       <div className="tagname">
        <h2>Others</h2>
        </div>
+
         {props.Others.map((item, index) => {
              return (
                 <div className="wrapper" key={index}>
@@ -83,7 +85,7 @@ const Cards = (props) => {
                 </div>
               );
         })}
-      </div>
+      </div> */}
 
 </div>
       
