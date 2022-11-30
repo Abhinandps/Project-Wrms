@@ -23,7 +23,7 @@ con.connect((err) => {
     if (err) {
         throw (err);
     }
-    console.log("connected to database");
+    // console.log("connected to database");
 })
 
 // display form element from person
@@ -39,6 +39,25 @@ app.get("/api/get",(req,res)=>{
 
 
 })
+
+// fetch a single user form details
+app.get("/api/single/form:title",(req,res)=>{
+    const title=req.params.title;
+    const qr="select * from person where title=?";
+    con.query(qr,title,(err,result)=>{
+        if(err){
+      console.log(err);
+        }
+        else{
+    
+            res.send(result);
+       }
+       })
+ 
+   
+
+})
+
 
 // display list of reporting staff to admin 
 
@@ -99,15 +118,15 @@ app.post("/api/insert/admin",urlencodedparser,jsonparser,(req,res)=>{
 })
 
 
-// assign reporting person
-app.post("/api/insert/selist",urlencodedparser,jsonparser,(req,res)=>{
+// fetch the details of single user 
+app.post("/api/insert/formlist",urlencodedparser,jsonparser,(req,res)=>{
 
   
     let name=req.body.name;
     let email=req.body.email;
     let school=req.body.set;
- let qr="insert into selectlist values(?,?,?)";
-    con.query(qr,[name,email,school],(err,data)=>{
+ let qr="insert into formlist values(?,?,?)";
+    con.query(qr,[name,school,email],(err,data)=>{
         if(err){
             res.send({error:"fail"})
         }
@@ -118,6 +137,18 @@ app.post("/api/insert/selist",urlencodedparser,jsonparser,(req,res)=>{
        })
     
 })
+
+
+// display the details of the report in the popup
+app.get("/api/list/workreport",(req,res)=>{
+
+    let view="select * from formlist";
+    con.query(view,(err,data)=>{
+      res.send(data)
+    })
+
+})
+
 // lsit the reporting person
 
 app.get("/api/list/report",(req,res)=>{
@@ -244,6 +275,8 @@ app.delete('/api/deletelist/:Taskname',(req,res)=>{
        })
 })
 
+
+// approve the work report
 app.patch("/api/stateupdate",urlencodedparser,jsonparser,(req,res)=>{
     // const Stats=req.body.status;
   const title=req.body.title;
@@ -258,6 +291,8 @@ app.patch("/api/stateupdate",urlencodedparser,jsonparser,(req,res)=>{
     }
        })
 })
+
+// Reject the work report
 
 app.patch("/api/statereject",urlencodedparser,jsonparser,(req,res)=>{
     // const Stats=req.body.status;
