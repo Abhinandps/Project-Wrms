@@ -23,7 +23,7 @@ con.connect((err) => {
     if (err) {
         throw (err);
     }
-    console.log("connected to database");
+    // console.log("connected to database");
 })
 
 // display form element from person
@@ -39,6 +39,25 @@ app.get("/api/get",(req,res)=>{
 
 
 })
+
+// fetch a single user form details
+app.get("/api/single/form:title",(req,res)=>{
+    const title=req.params.title;
+    const qr="select * from person where title=?";
+    con.query(qr,title,(err,result)=>{
+        if(err){
+      console.log(err);
+        }
+        else{
+    
+            res.send(result);
+       }
+       })
+ 
+   
+
+})
+
 
 // display list of reporting staff to admin 
 
@@ -244,6 +263,8 @@ app.delete('/api/deletelist/:Taskname',(req,res)=>{
        })
 })
 
+
+// approve the work report
 app.patch("/api/stateupdate",urlencodedparser,jsonparser,(req,res)=>{
     // const Stats=req.body.status;
   const title=req.body.title;
@@ -258,6 +279,8 @@ app.patch("/api/stateupdate",urlencodedparser,jsonparser,(req,res)=>{
     }
        })
 })
+
+// Reject the work report
 
 app.patch("/api/statereject",urlencodedparser,jsonparser,(req,res)=>{
     // const Stats=req.body.status;
