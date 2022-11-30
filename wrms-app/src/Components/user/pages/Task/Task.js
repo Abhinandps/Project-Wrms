@@ -48,8 +48,9 @@ const Task = () => {
         
           
           }} className="report-data">
+
       <div className="data">
-      <p>{obj.Taskname}</p>
+      <p>{obj.Taskname}nbbsdbbkjdfkj</p>
        <p>{obj.category}</p>
        <p>{obj.startdate}</p> 
        <p>{obj.enddate}</p> 
