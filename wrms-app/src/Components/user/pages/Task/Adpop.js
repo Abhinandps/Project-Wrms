@@ -6,8 +6,7 @@ const Adpop1 = (props) => {
     <div className="popup1">
     <div className='popup-inner1'>
  {props.children}
- <button className='close-btn1'onClick={()=>props.setTrigger(false)}>close</button>
-
+ <i onClick={()=>props.setTrigger(false)} class="fa-solid fa-xmark"></i>
     </div>
   
 </div>

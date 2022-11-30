@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Axios  from 'axios'
-import './Task.css'
+import './Main.css'
 import ComponentOne from '../dashboard/components/UI/ComponentOne';
 import ComponentTwo from '../dashboard/components/UI/ComponentTwo';
 
@@ -42,7 +42,7 @@ const onsubbmit=(e)=>{
   <div className='class1'>
   <form onSubmit={onsubbmit}>
     <label for="fname">Task Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name.."  onChange={(e)=>setName(e.target.value)}/>
+    <input type="text" id="fname" name="firstname" placeholder="Enter task name"  onChange={(e)=>setName(e.target.value)}/>
 
     <label for="lname">Category</label>
     <input type="text" id="lname" name="lastname" placeholder="Enter the category" onChange={(e)=>setCate(e.target.value)}/>
@@ -55,7 +55,9 @@ const onsubbmit=(e)=>{
  
 
 <label for="country">Priority</label>
-    <select id="country" name="country"  onChange={(e)=>setPri(e.target.value)}>
+    <select id="country" name="country"  onChange={(e)=>setPri(e.target.value)} required>
+      
+      <option></option>
       <option value="Low">Low</option>
       <option value="Normal">Normal</option>
       <option value="Urgent">Urgent</option>
