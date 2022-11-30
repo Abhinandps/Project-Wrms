@@ -1,8 +1,18 @@
 import React from "react";
 import "./Popup.css";
+import Axios from "axios";
 
 
-const Popup = ({ show, onClose,date,title,disc,type,status}) => {
+const Popup = ({ show, onClose,singleForm}) => {
+
+    const [form,setForm] = useState([]);
+
+    useEffect(() => {
+        Axios.get('http://localhost:7000/api/get').then((response) => {
+            setForm(response.data)
+    
+        })
+      }, [])
 
   if (!show) {
     return null;
@@ -16,17 +26,17 @@ const Popup = ({ show, onClose,date,title,disc,type,status}) => {
         <div className="section">
         <Cards
         
-              date={date}
-              comments={"Excelent"}
-              time={"04:45:21 PM"}
-              title={title}
-              disc={disc}
-              type={type}
+              date={singleForm[0].title}
+              comments={"Good"}
+              time={"06:11:21 PM"}
+              title={"singleForm.title"}
+              disc={"singleForm.Description"}
+              type={"singleForm.Type"}
             />
         </div>
 
         <div className="footer">
-        <button>{status}</button> 
+        <button>{"singleForm[0].status"}</button> 
         </div>
       </div>
     </div>
