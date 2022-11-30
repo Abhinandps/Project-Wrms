@@ -1,6 +1,8 @@
 import React from 'react'
 import Section from '../Section'
 import Time from '../Time'
+import ComponentOne from '../../user/pages/dashboard/components/UI/ComponentOne';
+import ComponentTwo from '../../user/pages/dashboard/components/UI/ComponentTwo';
 
 
 
@@ -11,9 +13,11 @@ const AdminDashboard = () => {
       <h1>Overview</h1>
       <Time/>
     </div>
+    <ComponentTwo>
     <div className="section_one">
-        <Section/>
+  
     </div>
+    </ComponentTwo>
   </div>
   )
 }
