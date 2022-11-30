@@ -15,7 +15,7 @@ const AdminDashboard = () => {
     </div>
     <ComponentTwo>
     <div className="section_one">
-  
+
     </div>
     </ComponentTwo>
   </div>
