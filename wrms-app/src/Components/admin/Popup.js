@@ -1,22 +1,23 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./Popup.css";
-import Axios from "axios";
+// import Axios from "axios";
 
 
 const Popup = ({ show, onClose,singleForm}) => {
 
-    const [form,setForm] = useState([]);
+    // const [form,setForm] = useState([]);
 
-    useEffect(() => {
-        Axios.get('http://localhost:7000/api/get').then((response) => {
-            setForm(response.data)
-    
-        })
-      }, [])
+    // useEffect(() => {
+    //     Axios.get('http://localhost:7000/api/get/workreport').then((response) => {
+    //         setForm(response.data)
+    //     })
+    //   }, [])
 
   if (!show) {
     return null;
   }
+
+
   
   return (
     <div className="modalWrapper">
@@ -26,17 +27,17 @@ const Popup = ({ show, onClose,singleForm}) => {
         <div className="section">
         <Cards
         
-              date={singleForm[0].title}
+              date={singleForm.title}
               comments={"Good"}
               time={"06:11:21 PM"}
-              title={"singleForm.title"}
-              disc={"singleForm.Description"}
-              type={"singleForm.Type"}
+              title={singleForm.title}
+              disc={singleForm.Description}
+              type={singleForm.Type}
             />
         </div>
 
         <div className="footer">
-        <button>{"singleForm[0].status"}</button> 
+        <button>{singleForm.status}</button> 
         </div>
       </div>
     </div>
@@ -66,7 +67,7 @@ const Cards = (props) => {
       {/* Official Data Displaying  */}
       <div className="card">
        <div className="tagname">
-       <h2>{props.type.toUpperCase()}</h2>
+       <h2>{props.type}</h2>
        </div>
   
             <div className="wrapper">

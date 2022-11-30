@@ -56,6 +56,20 @@ app.get("/api/single/form:title",(req,res)=>{
 })
 
 
+// display the selected form
+app.get("/api/get/workreport",(req,res)=>{
+
+    let select="select * from formlist";
+    con.query(select,(err,data)=>{
+        res.send(data);
+    })
+
+    
+
+
+})
+
+
 // display list of reporting staff to admin 
 
 app.get("/api/list/admin",(req,res)=>{

@@ -1,0 +1,273 @@
+
+.modalWrapper{
+    z-index: 1000;
+    position: absolute;
+    top:0 ;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    /* background: #000; */
+    
+}
+
+.modalicon{
+    width:40%;
+    border-radius: 15px;
+    min-height: 80vh;
+    background: #fff;
+    animation: fadeInDown 0.8s ease-in-out;
+    position: relative;
+    /* background: #000; */
+    /* padding: 10px 20px; */
+
+}
+
+
+.modalicon i{
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.7em;
+  color: rgb(7, 7, 7);
+  /* background: #000; */
+
+}
+
+
+.modal .section{
+    width: 100%;
+    height: 100%;
+    /* background: pink; */
+}
+
+.modal .section .header{
+    width: 100%;
+    height: 15vh;
+    border-radius:15px 15px 0 0 ;
+    background: linear-gradient(#3498Db,#2d6083);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+
+.modal .section .header h1{
+    color: #fff;
+}
+.modal .section .inner-section{
+    /* background: pink; */
+    width: 100%;
+    height: 30vh;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-section .status-group{
+    display: flex;
+    width: 100%;
+}
+
+
+
+.status-group .comments,.aproved-on{
+    width: 300px;
+    color: #fff;
+    background: linear-gradient(#3498Db,#2d6083);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+
+    padding: 10px 20px;
+
+}
+
+.status-group .comments>span,.aproved-on>span{
+    font-weight: bold;
+}
+
+.inner-section .card .tagname{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner-section .card{
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* align-items: center; */
+}
+
+.inner-section .card h2{
+    color: #fff;
+    font-size: 1em;
+    padding: 5px 5px;
+    border-radius: 25px;
+    background: linear-gradient(#3498Db,#2d6083);
+    width: 100px;
+    text-align: center;
+    
+
+}
+
+
+.card .card-header{
+    padding: 10px;
+    font-weight: bold;
+    /* background: red; */
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.card .contents{
+    padding: 10px;
+    /* background: pink; */
+    color: #555;
+    font-size: 1em;
+    
+}
+
+
+
+.modal .footer{
+    width: 100%;
+    height: 10vh;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.modal .footer>button{
+    background: rgb(236, 230, 230);
+    font-weight: bold;
+   color: red;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fadeInDown{
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+
+@media screen and (max-width:1000px){
+    
+.modal{
+    width:60%;
+    border-radius: 15px;
+    min-height: 70vh;
+    background: #fff;
+    animation: fadeInDown 0.8s ease-in-out;
+    position: relative;
+    }
+
+
+
+
+}
+
+
+@media screen and (max-width:900px){
+    
+.modal{
+    width:70%;
+    border-radius: 15px;
+    min-height: 70vh;
+    background: #fff;
+    animation: fadeInDown 0.8s ease-in-out;
+    position: relative;
+
+}
+
+
+
+@media screen  and (max-width:730px){
+
+}
+
+
+
+
+
+
+}
+
+@media screen and (max-width:500px){
+    
+.modal{
+    width:90%;
+    border-radius: 15px;
+    min-height: 70vh;
+    background: #fff;
+    animation: fadeInDown 0.8s ease-in-out;
+    position: relative;
+
+}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width:1310px) {
+    
+}

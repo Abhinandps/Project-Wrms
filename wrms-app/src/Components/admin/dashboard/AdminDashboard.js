@@ -16,7 +16,7 @@ const AdminDashboard = () => {
 
   //state for single form
 
-  const [singleForm,setSingleForm]=useState();
+  const [singleForm,setSingleForm]=useState([]);
 
   console.log(singleForm);
 
@@ -28,28 +28,28 @@ const AdminDashboard = () => {
       setDisform(response.data)
 
     })
-  }, [])
+  }, [singleForm])
 
   const fetchs = async (title) => {
     const res = await Axios.get(`http://localhost:7000/api/single/form${title}`)
-    setSingleForm(res.data);
+    setSingleForm(res.data[0]);
 
-    const responseData = res.data
-    {
-      responseData.map(({
-        title, Description, status
-      }
-      ) => {
+    // const responseData = res.data
+    // {
+    //   responseData.map(({
+    //     title, Description, status
+    //   }
+    //   ) => {
 
-        const title1 = title;
-        const Description1 = Description;
-        const status1 = status;
+    //     const title1 = title;
+    //     const Description1 = Description;
+    //     const status1 = status;
 
 
-        Axios.post('http://localhost:7000/api/insert/formlist', { name: title1, email: Description1, set: status1 })
+    //     Axios.post('http://localhost:7000/api/insert/formlist', { name: title1, email: Description1, set: status1 })
 
-      })
-    }
+    //   })
+    // }
 
 
   }
