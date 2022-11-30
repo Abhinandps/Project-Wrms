@@ -213,7 +213,7 @@ useEffect(()=>{
           </div>
 
           <div className="buttons">
-            <button type="submit" value="pending" onClick={(e) => {
+            <button type="submit" value="Pending HOD Approval" onClick={(e) => {
                   setUp(e.target.value);
                 }}>Save</button>
             <button onClick={resetInputfield} type="reset">
