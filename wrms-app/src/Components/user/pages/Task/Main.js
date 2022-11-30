@@ -3,6 +3,7 @@ import Axios  from 'axios'
 import './Task.css'
 import ComponentOne from '../dashboard/components/UI/ComponentOne';
 import ComponentTwo from '../dashboard/components/UI/ComponentTwo';
+
 const Main = () => {
     const[name,setName]=useState("")
     const [cate,setCate]=useState("")
@@ -11,6 +12,8 @@ const Main = () => {
     const [pri,setPri]=useState("")
     const [des,setDes]=useState("")
     const [count,setCount]=useState("")
+
+    const [show,setShow] = useState(false);
    
 
 
@@ -33,6 +36,7 @@ const onsubbmit=(e)=>{
 
     </ComponentOne> */}
     <ComponentTwo>
+    
 
     
   <div className='class1'>
@@ -69,6 +73,7 @@ const onsubbmit=(e)=>{
     <input type="submit" value="Submit"/>
   </form>
 </div>
+
 </ComponentTwo>
     </>
   )

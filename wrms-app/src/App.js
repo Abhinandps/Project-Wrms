@@ -16,7 +16,7 @@ import Task from "./Components/user/pages/Task/Task";
 import { NavData } from "./Components/NavData";
 
 // admin
-import AdminMainComponent from "./Components/admin/AdminMainComponent"; 
+import AdminMainComponent from "./Components/admin/AdminMainComponent";
 import AdminDashboard from "./Components/admin/dashboard/AdminDashboard";
 import AdminLogin from "./Components/admin/AdminLogin";
 import TeamMembers from "./Components/admin/team members/TeamMembers";
@@ -30,28 +30,28 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<IndexPage/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/admin-login" element={<AdminLogin/>}/>
+        <Route path="/" element={<IndexPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/user" element={<MainComponent />}>
-           <Route index path="dashboard" element={<Dashboard />}/>
-           <Route index path="work-report" element={<WorkReport/>}/>
-           <Route index path="report-details" element={<ReportDetails/>}/>
-           <Route path="*" element={<NotFound/>}/>
-        <Route path="my-task" element={<Task/>}/>
-      
-        
+          <Route index path="dashboard" element={<Dashboard />} />
+          <Route index path="work-report" element={<WorkReport />} />
+          <Route index path="report-details" element={<ReportDetails />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="my-task" element={<Task />} />
+
+
         </Route>
 
-        <Route path="/admin" element={<AdminMainComponent/>}>
-           <Route index path="dashboard"  element={<AdminDashboard/>}/>
-           <Route index path="members"  element={<TeamMembers/>}/>
-           <Route index path="report-details" element={<AdReportDetails/>}/>
-           <Route index path="task-details" element={<TaskDetails/>}/>
-           <Route index path="Report-person" element={<Reptperson/>}/>
-          
+        <Route path="/admin" element={<AdminMainComponent />}>
+          <Route index path="dashboard" element={<AdminDashboard />} />
+          <Route index path="members" element={<TeamMembers />} />
+          <Route index path="report-details" element={<AdReportDetails />} />
+          <Route index path="task-details" element={<TaskDetails />} />
+          <Route index path="Report-person" element={<Reptperson />} />
+
         </Route>
-        
+
       </Routes>
 
     </div>
