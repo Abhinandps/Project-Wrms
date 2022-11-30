@@ -5,6 +5,7 @@ import ComponentOne from '../../user/pages/dashboard/components/UI/ComponentOne'
 import ComponentTwo from '../../user/pages/dashboard/components/UI/ComponentTwo';
 import  Axios  from 'axios';
 import { data } from './reportData';
+import Popup from '../../user/pages/dashboard/components/Popup';
 
 
 
@@ -24,11 +25,31 @@ const AdminDashboard = () => {
   const fetchs= async(title)=>{
     const res=await Axios.get(`http://localhost:7000/api/single/form${title}`)
      
-    setDisfor(res.data)
+    const b=res.data
+    //  console.log(b);
+      
+          
+         
+         
+    
+          alert("ADDED sucessfully")
+    
+          {b.map(({
+         title,Description,status
+          }
+          )=>{
+            
+            const title1=title;
+            const Description1=Description;
+             const status1=status;
+            
+    
+           Axios.post('http://localhost:7000/api/insert/formlist',{name:title1,email:Description1,set:status1})
+        
+          })}
   
    
- 
-  }
+ }
 
   return (
     <> 

@@ -118,15 +118,15 @@ app.post("/api/insert/admin",urlencodedparser,jsonparser,(req,res)=>{
 })
 
 
-// assign reporting person
-app.post("/api/insert/selist",urlencodedparser,jsonparser,(req,res)=>{
+// fetch the details of single user 
+app.post("/api/insert/formlist",urlencodedparser,jsonparser,(req,res)=>{
 
   
     let name=req.body.name;
     let email=req.body.email;
     let school=req.body.set;
- let qr="insert into selectlist values(?,?,?)";
-    con.query(qr,[name,email,school],(err,data)=>{
+ let qr="insert into formlist values(?,?,?)";
+    con.query(qr,[name,school,email],(err,data)=>{
         if(err){
             res.send({error:"fail"})
         }
@@ -137,6 +137,18 @@ app.post("/api/insert/selist",urlencodedparser,jsonparser,(req,res)=>{
        })
     
 })
+
+
+// display the details of the report in the popup
+app.get("/api/list/workreport",(req,res)=>{
+
+    let view="select * from formlist";
+    con.query(view,(err,data)=>{
+      res.send(data)
+    })
+
+})
+
 // lsit the reporting person
 
 app.get("/api/list/report",(req,res)=>{

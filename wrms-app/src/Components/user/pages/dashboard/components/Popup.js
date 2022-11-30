@@ -15,6 +15,7 @@ const Popup = ({ show, onClose,date,title,disc,type,status}) => {
 
         <div className="section">
         <Cards
+        
               date={date}
               comments={"Excelent"}
               time={"04:45:21 PM"}
