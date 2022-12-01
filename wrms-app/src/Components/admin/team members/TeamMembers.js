@@ -26,12 +26,12 @@ const TeamMembers = () => {
       }, [])
 
 // displaY THE REPORTING PERSON
-      useEffect(() => {
-        Axios.get('http://localhost:7000/api/report/list').then((response) => {
-        //   response.send(data)
-            setRlist(response.data)
-        })
-      }, [])
+    //   useEffect(() => {
+    //     Axios.get('http://localhost:7000/api/report/list').then((response) => {
+    //     //   response.send(data)
+    //         setRlist(response.data)
+    //     })
+    //   }, [])
 
 
 
