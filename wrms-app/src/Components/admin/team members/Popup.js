@@ -10,17 +10,14 @@ const Popup = ({ show, onClose, reportingPersons }) => {
   const [rPerson, setRperson] = useState();
 
 
+
   // console.log(rPerson);
 
   // console.log(reportingPersons);
 
   // const [form,setForm] = useState([]);
 
-  // useEffect(() => {
-  //     Axios.get('http://localhost:7000/api/get/workreport').then((response) => {
-  //         setForm(response.data)
-  //     })
-  //   }, [])
+
 
 
 
@@ -33,7 +30,7 @@ const Popup = ({ show, onClose, reportingPersons }) => {
 
       
       swal({
-        title: "Reporting Person Added",
+        title: "Reporting Person Assigned",
         icon: "success",
         button: "OK!",
       });
@@ -77,21 +74,30 @@ const Popup = ({ show, onClose, reportingPersons }) => {
               }
 
             </select>
+
+            <button>Submit</button>
+        
+         
+
             {/* <p className="selected-option">Assigned Repoting Person : {rPerson}</p> */}
           <div className="Button">
           <button className="btn submit">Submit</button>
             <button className="btn close" onClick={onClose}>Close</button>
           </div>
             {/* <p>Assigned Repoting Person : {rPerson}</p> */}
+
           </div>
+          
+       
           </form>
 
         </div>
-
+     
         {/* <div className="footer">
           <button>{"singleForm.status"}</button>
         </div> */}
       </div>
+  
     </div>
   
   );

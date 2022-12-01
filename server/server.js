@@ -130,35 +130,35 @@ app.post("/api/insert/admin",urlencodedparser,jsonparser,(req,res)=>{
 
 
 // fetch the details of single user 
-app.post("/api/insert/formlist",urlencodedparser,jsonparser,(req,res)=>{
+// app.post("/api/insert/formlist",urlencodedparser,jsonparser,(req,res)=>{
 
   
-    let name=req.body.name;
-    let email=req.body.email;
-    let school=req.body.set;
- let qr="insert into formlist values(?,?,?)";
-    con.query(qr,[name,school,email],(err,data)=>{
-        if(err){
-            res.send({error:"fail"})
-        }
-        else{
+//     let name=req.body.name;
+//     let email=req.body.email;
+//     let school=req.body.set;
+//  let qr="insert into formlist values(?,?,?)";
+//     con.query(qr,[name,school,email],(err,data)=>{
+//         if(err){
+//             res.send({error:"fail"})
+//         }
+//         else{
     
-            res.send({success:"completed"})
-        }
-       })
+//             res.send({success:"completed"})
+//         }
+//        })
     
-})
+// })
 
 
-// display the details of the report in the popup
-app.get("/api/list/workreport",(req,res)=>{
+// // display the details of the report in the popup
+// app.get("/api/list/workreport",(req,res)=>{
 
-    let view="select * from formlist";
-    con.query(view,(err,data)=>{
-      res.send(data)
-    })
+//     let view="select * from formlist";
+//     con.query(view,(err,data)=>{
+//       res.send(data)
+//     })
 
-})
+// })
 
 // lsit the reporting person
 
@@ -176,7 +176,7 @@ app.get("/api/list/report",(req,res)=>{
 
 
 
-// fetch signle reporting person
+// add single reporting person  to the database of admin
 
 app.post("/api/single/fetch",urlencodedparser,jsonparser,(req,res)=>{
 
@@ -194,11 +194,22 @@ app.post("/api/single/fetch",urlencodedparser,jsonparser,(req,res)=>{
     
 })
 
+//display the single reporting person on the popup of admin
+
+app.get("/api/report/list",(req,res)=>{
+
+    let view="select * from repotlist";
+    con.query(view,(err,data)=>{
+      res.send(data)
+    })
+
+})
 
 
-// One line added
 
-// display the  reporting person 
+
+
+
 
 //delete from form
 app.delete('/api/delete/:title',(req,res)=>{
