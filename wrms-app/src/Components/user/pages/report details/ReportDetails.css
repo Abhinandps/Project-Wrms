@@ -1,7 +1,7 @@
 .details-head {
   width: 100%;
   min-height: calc(100vh - 10vh);
-  /* background: pink; */
+ 
   padding: 10px 25px;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -155,7 +155,23 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgb(228, 208, 31);
+}
 
+
+.all-reports .report-data .user-status{
+  background: none;
+  border: none;
+  box-shadow: none;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+}
+.user-status p,button{
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .all-reports .report-data .admin-report{

@@ -73,7 +73,11 @@ const reject=(title)=>{
         <div className="footer">
         <button className="reject disabled" disabled>Aproved</button>
         </div>
-        : 
+        :  singleForm.status === "REJECTED" ?
+        <div className="footer">
+        <button className="reject disabled" disabled>Rejected</button>
+        </div>
+        :
         <div className="footer">
         <button className="aprove" onClick={()=>{update(singleForm.title)}}>Approve</button>
         <button className="reject" onClick={()=>{reject(singleForm.title)}}>Reject</button>
