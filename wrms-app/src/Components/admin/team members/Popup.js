@@ -8,6 +8,8 @@ import { data } from "../dashboard/reportData";
 const Popup = ({ show, onClose, reportingPersons }) => {
 
   const [rPerson, setRperson] = useState();
+  const[fname,setFname]=useState("")
+  const[al,setAl]=useState([])
 
 
 
@@ -36,6 +38,13 @@ const Popup = ({ show, onClose, reportingPersons }) => {
       });
     })
 
+  //display the reporting person to the team page
+      Axios.get(`http://localhost:7000/api/report/list${fname}`).then((response) => {
+        setAl(response.data)
+  
+      })
+  
+
   }
 
 
@@ -46,8 +55,10 @@ const Popup = ({ show, onClose, reportingPersons }) => {
 
 
   return (
+    
  
     <div className="modalWrapper">
+      
       <div className="modalicon">
         <i onClick={onClose} class="fa-solid fa-xmark"></i>
 
@@ -59,7 +70,10 @@ const Popup = ({ show, onClose, reportingPersons }) => {
         <form onSubmit={handleInput}>
           <div className="inner-section">
           
-            <select onClick={(e) => { setRperson(e.target.value) }}>
+            <select onClick={(e) => {
+               setRperson(e.target.value)
+               setFname(e.target.value)
+               }}>
               <option></option>
               {
 
@@ -92,7 +106,9 @@ const Popup = ({ show, onClose, reportingPersons }) => {
           </form>
 
         </div>
-     
+     {al.map((obj)=>{
+      <p>assig:{obj.fname}</p>
+     })}
         {/* <div className="footer">
           <button>{"singleForm.status"}</button>
         </div> */}
