@@ -356,6 +356,16 @@ app.post("/api/register",urlencodedparser,jsonparser,(req,res)=>{
 })
 
 
+// display data from reporting person list
+
+app.get("/api/single/delete",(req,res)=>{
+    let qr = "select * from repotlist";
+    con.query(qr,(err,data)=>{
+        res.send(data)
+      })
+
+})
+
 app.listen(7000, function () {
     // console.log("server started");
 })
