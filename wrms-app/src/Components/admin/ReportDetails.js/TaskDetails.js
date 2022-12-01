@@ -14,9 +14,16 @@ const TaskDetails = () => {
       },[])
   return (
     <>
-    <ComponentOne>
+     <div className="dashboard">
+      
+      <div className="header">
+        <h1>Task List</h1>
+        {/* <Time /> */}
+      </div>
+      
+    {/* <ComponentOne>
 
-    </ComponentOne>
+    </ComponentOne> */}
     <ComponentTwo>
     <div className="all-reports">
 
@@ -27,9 +34,9 @@ const TaskDetails = () => {
       <div className="data">
       <p>{obj.Taskname}</p>
        <p>{obj.category}</p>
-       <div className="time">
-       <p>{obj.startdate}</p> -
-       <p>{obj.enddata}</p> 
+       <div className="time" style={{width:"250px",marginRight:"20px"}}>
+       <p>{obj.startdate.split("T18:30:00.000Z")}</p> -
+       <p>{obj.enddate.split("T18:30:00.000Z")}</p> 
        </div>
        <p>{obj.priority}</p>
        <p>{obj.status}</p>
@@ -46,7 +53,7 @@ const TaskDetails = () => {
 
 </div>
     </ComponentTwo>
-    
+    </div>
     </>
   )
 }

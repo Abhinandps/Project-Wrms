@@ -56,6 +56,8 @@ const AdminDashboard = () => {
 
   return (
     <>
+    <div className="dashboard">
+      
       <div className="header">
         <h1>Overview</h1>
         <Time />
@@ -90,6 +92,7 @@ const AdminDashboard = () => {
 
         </div>
       </ComponentTwo>
+      </div>
     </>
   )
 }

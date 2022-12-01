@@ -20,12 +20,12 @@ export const NavData = [
         title:'Report Details',
     },
     {
-        icon:'fa-solid fa-circle-exclamation',
+        icon:'fa-solid fa-list-check',
         path:'task-details',
         title:'Task Details',
     },
     {
-        icon:'fa-solid fa-circle-exclamation',
+        icon:'fa-solid fa-user-plus',
         path:'Report-person',
         title:'Reporting person',
     },

@@ -3,6 +3,7 @@ import Axios  from 'axios'
 import ComponentOne from "../../user/pages/dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../../user/pages/dashboard/components/UI/ComponentTwo";
 import swal from 'sweetalert'
+import Time from '../Time';
 const ReportDetails = () => {
     const [form,setForm]=useState([])
     useEffect(()=>{
@@ -70,9 +71,16 @@ const ReportDetails = () => {
 
 
 </div> */}
-<ComponentOne>
+ <div className="dashboard">
+      
+      <div className="header">
+        <h1>Report List</h1>
+        <Time />
+      </div>
+      
+{/* <ComponentOne>
 
-</ComponentOne>
+</ComponentOne> */}
 <ComponentTwo>
         <div className="details-heading">
           <p>All Reports</p>
@@ -92,9 +100,9 @@ const ReportDetails = () => {
                  <p>{obj.Fromtime.split(":00")}</p> 
                  </div>
                 </div>
-                 <div className="status">
-                 <button  onClick={()=>{updateitems(obj.title)}}>Approve</button>
-                 <button onClick={()=>{Rejectitems(obj.title)}}>Reject</button>
+                 <div className="status admin-report">
+                 <button className='btn aprove'  onClick={()=>{updateitems(obj.title)}}>Approve</button>
+                 <button  className='btn reject' onClick={()=>{Rejectitems(obj.title)}}>Reject</button>
                  </div>
                </div>
               )
@@ -104,6 +112,7 @@ const ReportDetails = () => {
 
         </div>
       </ComponentTwo> 
+      </div>
     </>
   )
 }
