@@ -6,6 +6,7 @@ import ComponentTwo from '../../user/pages/dashboard/components/UI/ComponentTwo'
 import Axios from 'axios';
 import { data } from './reportData';
 import Popup from '../Popup';
+import swal from 'sweetalert';
 
 
 
@@ -33,26 +34,25 @@ const AdminDashboard = () => {
   const fetchs = async (title) => {
     const res = await Axios.get(`http://localhost:7000/api/single/form${title}`)
     setSingleForm(res.data[0]);
-
-    // const responseData = res.data
-    // {
-    //   responseData.map(({
-    //     title, Description, status
-    //   }
-    //   ) => {
-
-    //     const title1 = title;
-    //     const Description1 = Description;
-    //     const status1 = status;
-
-
-    //     Axios.post('http://localhost:7000/api/insert/formlist', { name: title1, email: Description1, set: status1 })
-
-    //   })
-    // }
-
-
   }
+
+
+
+
+    const reject=(title)=>{
+        
+      Axios.patch('http://localhost:7000/api/statereject',{title:title}).then((response)=>{
+      //  response.send("finisg")
+      swal({
+        title: " Report Rejected",
+        icon: "warning",
+        button: "OK!",
+      });
+    })
+      
+ 
+  }
+
 
   return (
     <>
@@ -78,6 +78,8 @@ const AdminDashboard = () => {
                     <div className="time">
                       <p>{obj.Totime.split(":00")}</p> -
                       <p>{obj.Fromtime.split(":00")}</p>
+                     
+                      
                     </div>
                   </div>
                 </div>
