@@ -1,15 +1,15 @@
 
 .modalWrapper{
     z-index: 1000;
-    position: absolute;
+    /* position: absolute;
     top:0 ;
     bottom: 0;
     left: 0;
-    right: 0;    
+    right: 0;     */
     background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     transition: 0.3s;
     /* background: #000; */
     
@@ -18,7 +18,7 @@
 .modalicon{
     width:40%;
     border-radius: 15px;
-    min-height: 80vh;
+    min-height: 40vh;
     background: #fff;
     animation: fadeInDown 0.8s ease-in-out;
     position: relative;
@@ -34,19 +34,48 @@
   top: 20px;
   right: 20px;
   font-size: 1.7em;
-  color: rgb(7, 7, 7);
+  color: rgb(255, 255, 255);
   /* background: #000; */
 
 }
 
 
-.modal .section{
+.modalWrapper .section{
     width: 100%;
-    height: 100%;
-    /* background: pink; */
+    height: 50vh;
+}
+.modalWrapper .section select{
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+}
+.modalWrapper .section .selected-option{
+    padding: 30px 0;
 }
 
-.modal .section .header{
+.modalWrapper .section .Button{
+     margin-top: 20px;
+     width: 100%;
+     display: flex;
+     justify-content: flex-end;
+}
+.modalWrapper .section .Button button{
+    margin: 0 5px;
+}
+
+
+.modalWrapper .section .submit{
+    background: rgb(44, 219, 167);
+    font-size: 16px;
+}
+.modalWrapper .section .close{
+    background: rgb(146, 145, 145);
+    font-size: 16px;
+}
+
+
+.modalWrapper .section .header{
     width: 100%;
     height: 15vh;
     border-radius:15px 15px 0 0 ;
@@ -61,14 +90,17 @@
 }
 
 
-.modal .section .header h1{
+.modalWrapper .section .header h1{
     color: #fff;
 }
-.modal .section .inner-section{
+
+
+
+.modalWrapper .section .inner-section{
     /* background: pink; */
     width: 100%;
     height: 30vh;
-    padding: 20px 30px;
+    padding: 20px 70px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
