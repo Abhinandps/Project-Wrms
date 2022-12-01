@@ -196,10 +196,10 @@ app.post("/api/single/fetch",urlencodedparser,jsonparser,(req,res)=>{
 
 //display the single reporting person on the popup of admin
 
-app.get("/api/report/list",(req,res)=>{
-
-    let view="select * from repotlist";
-    con.query(view,(err,data)=>{
+app.get("/api/report/list:fname",(req,res)=>{
+const name=req.params.fname
+    let view="select * from repotlist where fname=?";
+    con.query(view,name,(err,data)=>{
       res.send(data)
     })
 
@@ -333,6 +333,26 @@ app.patch("/api/statereject",urlencodedparser,jsonparser,(req,res)=>{
         res.send(result)
     }
        })
+})
+
+
+
+// user login data store api
+app.post("/api/register",urlencodedparser,jsonparser,(req,res)=>{
+
+    let uname=req.body.uname;
+    let pass=req.body.pass;
+ let qr="insert into userlogin  values(?,?)";
+    con.query(qr,[uname,pass],(err,data)=>{
+        if(err){
+            res.send({error:"fail"})
+        }
+        else{
+    
+            res.send({success:"completed"})
+        }
+       })
+    
 })
 
 
