@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import Axios  from 'axios'
 import ComponentOne from "../../user/pages/dashboard/components/UI/ComponentOne";
 import ComponentTwo from "../../user/pages/dashboard/components/UI/ComponentTwo";
-
+import swal from 'sweetalert'
 const ReportDetails = () => {
     const [form,setForm]=useState([])
     useEffect(()=>{
@@ -20,18 +20,28 @@ const ReportDetails = () => {
 
         Axios.patch('http://localhost:7000/api/stateupdate',{title:title}).then((response)=>{
         //  response.send("finisg")
-       alert("hdf")
-        
+        swal({
+          title: "Report Approved",
+          icon: "success",
+          button: "OK!",
+        });
       })
+        
+   
     }
 
     const Rejectitems=(title)=>{
         
       Axios.patch('http://localhost:7000/api/statereject',{title:title}).then((response)=>{
       //  response.send("finisg")
-     alert("hdf")
-      
+      swal({
+        title: " Report Rejected",
+        icon: "warning",
+        button: "OK!",
+      });
     })
+      
+ 
   }
   return (
     <>
