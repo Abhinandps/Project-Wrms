@@ -178,19 +178,23 @@ app.get("/api/list/report",(req,res)=>{
 
 // fetch signle reporting person
 
-app.get("/api/single:fname",(req,res)=>{
-    const fname=req.params.fname;
-    const qr="select * from list where fname=?";
-    con.query(qr,fname,(err,result)=>{
+app.post("/api/single/fetch",urlencodedparser,jsonparser,(req,res)=>{
+
+    let fname=req.body.fname;
+ let qr="insert into repotlist  values(?)";
+    con.query(qr,[fname],(err,data)=>{
         if(err){
-      res.send(err)
+            res.send({error:"fail"})
         }
         else{
     
-            res.send(result);
-       }
+            res.send({success:"completed"})
+        }
        })
+    
 })
+
+
 
 // One line added
 
