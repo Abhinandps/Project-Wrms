@@ -52,16 +52,21 @@ const Popup = ({ show, onClose, reportingPersons }) => {
         <i onClick={onClose} class="fa-solid fa-xmark"></i>
 
         <div className="section">
+        <div className="header">
+        <h1>Assign Reporting Person</h1>
+        <p></p>
+        </div>
         <form onSubmit={handleInput}>
           <div className="inner-section">
           
             <select onClick={(e) => { setRperson(e.target.value) }}>
+              <option></option>
               {
 
                 reportingPersons.map((obj) => {
                   return (
                     <>
-                      <option value={obj.fname}>{obj.fname}</option>
+                      <option className="option" value={obj.fname}>{obj.fname}</option>
                     </>
                   )
                 })
@@ -69,9 +74,18 @@ const Popup = ({ show, onClose, reportingPersons }) => {
               }
 
             </select>
+
             <button>Submit</button>
         
          
+
+            {/* <p className="selected-option">Assigned Repoting Person : {rPerson}</p> */}
+          <div className="Button">
+          <button className="btn submit">Submit</button>
+            <button className="btn close" onClick={onClose}>Close</button>
+          </div>
+            {/* <p>Assigned Repoting Person : {rPerson}</p> */}
+
           </div>
           
        
