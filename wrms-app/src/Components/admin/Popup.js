@@ -6,13 +6,16 @@ import swal from "sweetalert";
 
 const Popup = ({ show, onClose,singleForm}) => {
 
-    // const [form,setForm] = useState([]);
+    const [form,setForm] = useState([]);
+    // console.log(form.title);
 
     // useEffect(() => {
     //     Axios.get('http://localhost:7000/api/get/workreport').then((response) => {
     //         setForm(response.data)
     //     })
     //   }, [])
+
+
 
   if (!show) {
     return null;
@@ -65,10 +68,23 @@ const reject=(title)=>{
             />
         </div>
 
+        {
+        singleForm.status === "APPROVED" ? 
         <div className="footer">
-        <p><button  onClick={()=>{update(singleForm.title)}}>Approve</button></p>
-        <p><button onClick={()=>{reject(singleForm.title)}}>Reject</button></p>
+        <button className="reject disabled" disabled>Aproved</button>
         </div>
+        : 
+        <div className="footer">
+        <button className="aprove" onClick={()=>{update(singleForm.title)}}>Approve</button>
+        <button className="reject" onClick={()=>{reject(singleForm.title)}}>Reject</button>
+        </div>
+        
+        }
+
+        
+
+
+
       </div>
     </div>
   );
@@ -85,11 +101,16 @@ const Cards = (props) => {
 <div className="inner-section">
 <div className="status-group">
         <div className="comments">
-          <span>Comments :</span>
+          {/* <select>
+            <option value="">Excelent</option>
+            <option value="">Good</option>
+            <option value="">Need Improvemnet</option>
+
+          </select> */}
           <p>{props.comments}</p>
         </div>
         <div className="aproved-on">
-          <span>Aproved On :</span>
+          <span>Time :</span>
           <p>{props.time}</p>
         </div>
       </div>

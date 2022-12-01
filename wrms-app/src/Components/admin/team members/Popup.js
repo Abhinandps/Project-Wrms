@@ -51,8 +51,8 @@ const Popup = ({ show, onClose, reportingPersons }) => {
       <div className="modalicon">
         <i onClick={onClose} class="fa-solid fa-xmark"></i>
 
-        <div className="section">
-        <div className="header">
+        <div className="section-team-member">
+        <div className="section-header">
         <h1>Assign Reporting Person</h1>
         <p></p>
         </div>
@@ -74,17 +74,11 @@ const Popup = ({ show, onClose, reportingPersons }) => {
               }
 
             </select>
-
-            <button>Submit</button>
-        
-         
-
-            {/* <p className="selected-option">Assigned Repoting Person : {rPerson}</p> */}
+            
           <div className="Button">
           <button className="btn submit">Submit</button>
             <button className="btn close" onClick={onClose}>Close</button>
           </div>
-            {/* <p>Assigned Repoting Person : {rPerson}</p> */}
 
           </div>
           
@@ -93,81 +87,11 @@ const Popup = ({ show, onClose, reportingPersons }) => {
 
         </div>
      
-        {/* <div className="footer">
-          <button>{"singleForm.status"}</button>
-        </div> */}
+      
       </div>
   
     </div>
   
-  );
-};
-
-const Cards = ({ data }) => {
-  return (
-    <>
-      {/* <div className="header">
-        <h1>Daily Report</h1>
-        <p>{props.date}</p>
-      </div> */}
-      {/* 
-      <div className="inner-section">
-        <select onClick={(e)=>setRperson(e.target.value)}>
-        {
-          
-          data.map((obj)=>{
-            return(
-              <>
-              <option value={obj.fname}>{obj.fname}</option>
-              </>
-            )
-          })
-        
-      }
-
-        </select> */}
-
-
-
-
-      {/* <div className="status-group">
-          <div className="comments">
-            <span>Comments :</span>
-            <p>{props.comments}</p>
-          </div>
-          <div className="aproved-on">
-            <span>Aproved On :</span>
-            <p>{props.time}</p>
-          </div>
-        </div> */}
-
-      {/* Official Data Displaying  */}
-      {/* <div className="card">
-          <div className="tagname">
-            <h2>{props.type}</h2>
-          </div>
-
-          <div className="wrapper">
-            <div className="card-header">
-              <p>{props.title}</p>
-              <p>2hr</p>
-            </div>
-            <div className="contents">{props.disc}</div>
-          </div>
-
-        </div> */}
-
-      {/* <div className="approve">
-          {props.status}
-        </div> */}
-
-
-      {/* </div> */}
-
-
-
-
-    </>
   );
 };
 

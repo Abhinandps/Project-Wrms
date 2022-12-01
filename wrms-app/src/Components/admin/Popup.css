@@ -21,7 +21,7 @@
     background: #fff;
     animation: fadeInDown 0.8s ease-in-out;
     position: relative;
-    /* padding: 10px 20px; */
+ 
 
 }
 
@@ -62,7 +62,6 @@
     color: #fff;
 }
 .modal .section .inner-section{
-    /* background: pink; */
     width: 100%;
     padding: 20px 30px;
 }
@@ -70,20 +69,6 @@
 .inner-section .status-group{
     display: flex;
     width: 100%;
-}
-
-
-
-.status-group .comments,.aproved-on{
-    width: 300px;
-    color: #fff;
-    background: linear-gradient(#3498Db,#2d6083);
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-around;
-
-    padding: 10px 20px;
-
 }
 
 .status-group .comments>span,.aproved-on>span{
@@ -154,9 +139,18 @@
     font-weight: bold;
    color: red;
     padding: 10px 20px;
+    margin-left: 10px;
     border: none;
     border-radius: 5px;
-    
+    cursor: pointer;
+}
+.modal .footer>.disabled{
+    color: rgb(173, 63, 63);
+}
+
+.modal .footer .aprove{
+    background: rgb(23, 224, 174);
+     color: rgb(240, 240, 240);
 }
 
 
