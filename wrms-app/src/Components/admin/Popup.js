@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import "./Popup.css";
-// import Axios from "axios";
+import Axios from "axios";
+import swal from "sweetalert";
 
 
 const Popup = ({ show, onClose,singleForm}) => {
@@ -16,7 +17,35 @@ const Popup = ({ show, onClose,singleForm}) => {
   if (!show) {
     return null;
   }
+  const update=(title)=>{
+      
 
+    Axios.patch('http://localhost:7000/api/stateupdate',{title:title}).then((response)=>{
+    //  response.send("finisg")
+    swal({
+      title: "Report Approved",
+      icon: "success",
+      button: "OK!",
+    });
+  })
+    
+
+}
+
+
+const reject=(title)=>{
+        
+  Axios.patch('http://localhost:7000/api/statereject',{title:title}).then((response)=>{
+  //  response.send("finisg")
+  swal({
+    title: " Report Rejected",
+    icon: "warning",
+    button: "OK!",
+  });
+})
+  
+
+}
 
   
   return (
@@ -37,7 +66,8 @@ const Popup = ({ show, onClose,singleForm}) => {
         </div>
 
         <div className="footer">
-        <button>{singleForm.status}</button> 
+        <p><button  onClick={()=>{update(singleForm.title)}}>Approve</button></p>
+        <p><button onClick={()=>{reject(singleForm.title)}}>Reject</button></p>
         </div>
       </div>
     </div>
