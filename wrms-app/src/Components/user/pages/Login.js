@@ -8,20 +8,15 @@ const Login = () => {
   const [pass, setPass]=useState("")
   const [uname, setUname]=useState("")
 
-
-  const register = (e) => {
-    e.preventDefault();
-    Axios.post('http://localhost:7000/api/register',{uname:uname,pass:pass})
-    .then((res)=>{
-     
-
-      
-      swal({
-        title: "Reporting Person Assigned",
-        icon: "success",
-        button: "OK!",
-      });
-    })
+  const usename="ananthu";
+  const password="123456"
+  const register = () => {
+     if(uname==usename && pass==password){
+      alert("lOGIN SUCCESSFUL")
+     }
+     else{
+      alert("fAILED")
+     }
   }
 
 
@@ -39,14 +34,9 @@ const Login = () => {
         <input type="password"  onChange={(e)=>{
           setPass(e.target.value)
         }}/>
-        <button onClick={register}>Register</button>
+        <button onClick={register}>Login</button>
       </div>
-      <div className="login">
-      <h1>Login</h1>
       
-        <input type="text" placeholder='username'/>
-       <input type="password" placeholder='password'/>
-      </div>
     </div>
   )
 }
