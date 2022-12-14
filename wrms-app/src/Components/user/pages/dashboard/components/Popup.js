@@ -1,6 +1,6 @@
 import React from "react";
 import "./Popup.css";
-import { Official,Others } from "./ReportsData";
+
 
 const Popup = ({ show, onClose,date,title,disc,type,status}) => {
 
@@ -71,26 +71,6 @@ const Cards = (props) => {
       <div className="approve">
         {props.status}
       </div>
-
-      {/* Others Data Displaying  */}
-      {/* <div className="card">
-      <div className="tagname">
-       <h2>Others</h2>
-       </div>
-
-        {props.Others.map((item, index) => {
-             return (
-                <div className="wrapper" key={index}>
-                  <div className="card-header">
-                    <p>{item.title}</p>
-                    <p>{item.hour}</p>
-                  </div>
-                  <div className="contents">{item.contents}</div>
-                </div>
-              );
-        })}
-      </div> */}
-
 </div>
       
 

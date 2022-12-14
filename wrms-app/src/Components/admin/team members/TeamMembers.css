@@ -10,6 +10,7 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    
 }
 
 .members-list .card{
@@ -21,9 +22,11 @@
     align-items: center;
     background: linear-gradient(#3498Db,#2d6083);
     width: 30%;
+    height: 20vh;
     border-radius: 10px;
-    padding: 10px 30px;
+    padding: 10px 20px;
     transition: 0.5s;
+    position: relative;
 }
 
 .members-list .card:hover{
@@ -39,6 +42,20 @@
     height: 50px;
     border-radius:50%;
 }
+
+.members-list .card .tag{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgb(205, 56, 250);
+    padding: 10px 20px;
+    border-radius:5px 10px 5px;
+    border:2px solid rgb(255, 255, 255);
+    border-top: none;
+    border-right: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 
 
 @media screen and (max-width:500px) {
@@ -82,3 +99,4 @@
     border-radius:50%;
 }
 }
+

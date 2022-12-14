@@ -53,8 +53,19 @@ app.get("/api/single/form:title",(req,res)=>{
             res.send(result);
        }
        })
- 
-   
+})
+
+
+// display the selected form
+app.get("/api/get/workreport",(req,res)=>{
+
+    let select="select * from formlist";
+    con.query(select,(err,data)=>{
+        res.send(data);
+    })
+
+    
+
 
 })
 
@@ -119,35 +130,35 @@ app.post("/api/insert/admin",urlencodedparser,jsonparser,(req,res)=>{
 
 
 // fetch the details of single user 
-app.post("/api/insert/formlist",urlencodedparser,jsonparser,(req,res)=>{
+// app.post("/api/insert/formlist",urlencodedparser,jsonparser,(req,res)=>{
 
   
-    let name=req.body.name;
-    let email=req.body.email;
-    let school=req.body.set;
- let qr="insert into formlist values(?,?,?)";
-    con.query(qr,[name,school,email],(err,data)=>{
-        if(err){
-            res.send({error:"fail"})
-        }
-        else{
+//     let name=req.body.name;
+//     let email=req.body.email;
+//     let school=req.body.set;
+//  let qr="insert into formlist values(?,?,?)";
+//     con.query(qr,[name,school,email],(err,data)=>{
+//         if(err){
+//             res.send({error:"fail"})
+//         }
+//         else{
     
-            res.send({success:"completed"})
-        }
-       })
+//             res.send({success:"completed"})
+//         }
+//        })
     
-})
+// })
 
 
-// display the details of the report in the popup
-app.get("/api/list/workreport",(req,res)=>{
+// // display the details of the report in the popup
+// app.get("/api/list/workreport",(req,res)=>{
 
-    let view="select * from formlist";
-    con.query(view,(err,data)=>{
-      res.send(data)
-    })
+//     let view="select * from formlist";
+//     con.query(view,(err,data)=>{
+//       res.send(data)
+//     })
 
-})
+// })
 
 // lsit the reporting person
 
@@ -165,25 +176,40 @@ app.get("/api/list/report",(req,res)=>{
 
 
 
-// fetch signle reporting person
+// add single reporting person  to the database of admin
 
-app.get("/api/single:fname",(req,res)=>{
-    const fname=req.params.fname;
-    const qr="select * from list where fname=?";
-    con.query(qr,fname,(err,result)=>{
+app.post("/api/single/fetch",urlencodedparser,jsonparser,(req,res)=>{
+
+    let fname=req.body.fname;
+ let qr="insert into repotlist  values(?)";
+    con.query(qr,[fname],(err,data)=>{
         if(err){
-      res.send(err)
+            res.send({error:"fail"})
         }
         else{
     
-            res.send(result);
-       }
+            res.send({success:"completed"})
+        }
        })
+    
 })
 
-// One line added
+//display the single reporting person on the popup of admin
 
-// display the  reporting person 
+app.get("/api/report/list:fname",(req,res)=>{
+const name=req.params.fname
+    let view="select * from repotlist where fname=?";
+    con.query(view,name,(err,data)=>{
+      res.send(data)
+    })
+
+})
+
+
+
+
+
+
 
 //delete from form
 app.delete('/api/delete/:title',(req,res)=>{
@@ -309,6 +335,36 @@ app.patch("/api/statereject",urlencodedparser,jsonparser,(req,res)=>{
        })
 })
 
+
+
+// user login data store api
+app.post("/api/register",urlencodedparser,jsonparser,(req,res)=>{
+
+    let uname=req.body.uname;
+    let pass=req.body.pass;
+ let qr="insert into userlogin  values(?,?)";
+    con.query(qr,[uname,pass],(err,data)=>{
+        if(err){
+            res.send({error:"fail"})
+        }
+        else{
+    
+            res.send({success:"completed"})
+        }
+       })
+    
+})
+
+
+// display data from reporting person list
+
+app.get("/api/single/delete",(req,res)=>{
+    let qr = "select * from repotlist";
+    con.query(qr,(err,data)=>{
+        res.send(data)
+      })
+
+})
 
 app.listen(7000, function () {
     // console.log("server started");

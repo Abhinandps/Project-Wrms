@@ -1,7 +1,7 @@
 .details-head {
   width: 100%;
   min-height: calc(100vh - 10vh);
-  /* background: pink; */
+ 
   padding: 10px 25px;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -121,6 +121,15 @@
   transition: 0.5s;
 }
 
+.all-reports .person-list{
+  background: whitesmoke;
+  min-height: 8vh;
+  color: #000;
+  border: 1px solid #999;
+  border-radius: 5px;
+
+}
+
 .all-reports .report-data .data{
     display: flex;
     align-items: center;
@@ -146,8 +155,42 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgb(228, 208, 31);
-
 }
+
+
+.all-reports .report-data .user-status{
+  background: none;
+  border: none;
+  box-shadow: none;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+}
+.user-status p,button{
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.all-reports .report-data .admin-report{
+  background: none;
+  border: none;
+  box-shadow:none;
+}
+
+.admin-report .aprove{
+  background: rgb(18, 202, 132);
+  border-radius: 10px;
+}
+.admin-report .reject{
+  background: rgb(243, 67, 67);
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+
 .all-reports .report-data .data .time{
   padding: 5px 15px;
   background: rgba(248, 248, 248, 0.25);
